@@ -1,0 +1,17 @@
+# This is a sample build configuration for PHP.
+# Check our guides at https://confluence.atlassian.com/x/e8YWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+build: docker/php
+options:
+  max-time: 10
+pipelines:
+  pull-requests:
+    '**':
+      - step:
+          caches:
+            - composer
+          script:
+            - composer install --optimize-autoloader -n
+            #- php -d memory_limit=-1 ./vendor/bin/phpunit

@@ -1,0 +1,19 @@
+grumphp:
+  git_hook_variables:
+    EXEC_GRUMPHP_COMMAND: 'docker-compose -f docker-compose.yml run --rm php '
+  ascii:
+    failed: ~
+    succeeded: ~
+  ignore_unstaged_changes: false
+  tasks:
+    phpstan:
+      configuration: phpstan.neon
+      level: null
+    yamllint:
+      parse_constant: true
+    git_commit_message:
+      allow_empty_message: false
+      max_subject_width: 72
+      matchers:
+        Must contain JIRA issue number: /^([A-Z]+\-[0-9]+\:|technical\:|Merge branch)/
+      enforce_capitalized_subject: false

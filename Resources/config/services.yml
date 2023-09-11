@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  JapanDoudou\ChatGptBundle\Contracts\Services\ChatGptServiceInterface:
+    alias: JapanDoudou\ChatGptBundle\Services\ChatGptService
+
+  JapanDoudou\ChatGptBundle\Services\ChatGptService:
+    arguments:
+      - ''
+      - '@translator'
+      - ''
