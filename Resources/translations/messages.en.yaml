@@ -1,0 +1,7 @@
+chatbot:
+  debug: 'This is a generic debug message to avoid sending a token'
+  history:
+    id: 'ID'
+    date: 'written on'
+    user: 'by'
+    message: 'message'

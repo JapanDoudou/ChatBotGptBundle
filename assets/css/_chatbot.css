@@ -69,3 +69,15 @@ input[type="text"] {
 #send-button:hover {
     background-color: #0056b3;
 }
+
+tr.bot {
+    text-align: left;
+    background-color: rgba(0, 123, 255, 0.16);
+}
+
+tr.bot.error {
+    background-color: rgb(255, 0, 0, 0.16);
+}
+tr.user > td.message {
+    text-align: right;
+}

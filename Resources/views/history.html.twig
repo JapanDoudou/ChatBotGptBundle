@@ -1,0 +1,25 @@
+<!-- template of ChatbotHistory list paginated. It's a table with a header -->
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>{{ 'chatbot.history.id'|trans }}</th>
+        <th>{{ 'chatbot.history.date'|trans }}</th>
+        <th>{{ 'chatbot.history.user'|trans }}</th>
+        <th>{{ 'chatbot.history.message'|trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for message in chatbot_messages|reverse %}
+        {% set is_bot = message.response is not empty and message.response['user'] is same as 'glados' %}
+        {% set is_error =  message.response is not empty and message.response['code'] > 300 %}
+        <tr class="{{ is_bot ? 'bot' : 'user' }} {{ is_error ? 'error' : '' }}">
+            <td>{{ message.id }}</td>
+            <td>{{ render_date(message.createdAt)}}</td>
+            {% if message.response is not empty %}
+                <td>{{ message.response['user'] ?? 'no user' }}</td>
+                <td class="message">{{ message.response['message'] ?? 'no message'}}</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,3 +1,7 @@
 chatbot:
   path: /chatbot
   controller: JapanDoudou\ChatGptBundle\Controller\ChatbotController::getResponse
+  
+chatbot_history:
+  path: /chatbot/history
+  controller: JapanDoudou\ChatGptBundle\Controller\ChatbotController::getHistory

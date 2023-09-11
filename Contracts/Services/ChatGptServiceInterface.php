@@ -2,7 +2,7 @@
 
 namespace JapanDoudou\ChatGptBundle\Contracts\Services;
 
-use JapanDoudou\ChatGptBundle\DTO\ChatGptResponse;
+use JapanDoudou\ChatGptBundle\DTO\ChatGptMessage;
 
 interface ChatGptServiceInterface
 {
@@ -11,7 +11,7 @@ interface ChatGptServiceInterface
      * $temperature is a float between 0 and 1, 1 mean no randomness and 0 mean a lot of randomness
      * @param string $message
      * @param float $temperature
-     * @return ChatGptResponse
+     * @return ChatGptMessage
      */
-    public function getResponse(string $message, float $temperature = 0.7): ChatGptResponse;
+    public function getResponse(string $message, float $temperature = 0.7): ChatGptMessage;
 }

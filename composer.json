@@ -18,6 +18,7 @@
     "doctrine/orm": "^2.12",
     "doctrine/dbal": "^3.6",
     "openai-php/client": "^0.7.3",
+    "pagerfanta/core": "^3.7 || ^4.0",
     "symfony/http-client": "^6.3",
     "nyholm/psr7": "^1.8"
   },

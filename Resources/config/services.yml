@@ -10,11 +10,28 @@ services:
   JapanDoudou\ChatGptBundle\Controller\ChatbotController:
     public: true
 
+  JapanDoudou\ChatGptBundle\Repository\ChatbotHistoryRepository:
+    arguments:
+      - '@Doctrine\Persistence\ManagerRegistry'
+    public: true
+  
+  JapanDoudou\ChatGptBundle\Manager\ChatbotHistoryManager:
+    arguments:
+      - '@Doctrine\ORM\EntityManagerInterface'
+  
+  JapanDoudou\ChatGptBundle\Contracts\Manager\ChatbotHistoryManagerInterface:
+    alias: JapanDoudou\ChatGptBundle\Manager\ChatbotHistoryManager
+    public: true;
+
   JapanDoudou\ChatGptBundle\Contracts\Services\ChatGptServiceInterface:
     alias: JapanDoudou\ChatGptBundle\Services\ChatGptService
+
+
 
   JapanDoudou\ChatGptBundle\Services\ChatGptService:
     arguments:
       - ''
       - '@translator'
+      - '@JapanDoudou\ChatGptBundle\Contracts\Manager\ChatbotHistoryManagerInterface'
+      - ''
       - ''

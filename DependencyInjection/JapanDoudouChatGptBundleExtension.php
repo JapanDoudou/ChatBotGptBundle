@@ -29,9 +29,13 @@ class JapanDoudouChatGptBundleExtension extends Extension
         if (!isset($configs[0]['is_debug'])) {
             $configs[0]['is_debug'] = true;
         }
+        if (!isset($configs[0]['save_history'])) {
+            $configs[0]['save_history'] = true;
+        }
 
         $definition = $container->getDefinition(ChatGptService::class);
         $definition->replaceArgument(0, $configs[0]['openai_key'])
-            ->replaceArgument(2, $configs[0]['is_debug']);
+            ->replaceArgument(3, $configs[0]['is_debug'])
+            ->replaceArgument(4, $configs[0]['save_history']);
     }
 }

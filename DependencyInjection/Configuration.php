@@ -16,6 +16,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                     ->scalarNode('openai_key')->end()
                     ->scalarNode('is_debug')->end()
+                    ->scalarNode('save_history')->end()
             ->end();
 
         return $treeBuilder;
