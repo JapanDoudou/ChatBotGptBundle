@@ -2,6 +2,13 @@ services:
   _defaults:
     autowire: true
     autoconfigure: true
+    public: true
+  # this creates a service per class whose id is the fully-qualified class name
+  JapanDoudou\ChatGptBundle\:
+    resource: '../'
+
+  JapanDoudou\ChatGptBundle\Controller\ChatbotController:
+    public: true
 
   JapanDoudou\ChatGptBundle\Contracts\Services\ChatGptServiceInterface:
     alias: JapanDoudou\ChatGptBundle\Services\ChatGptService

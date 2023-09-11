@@ -1,0 +1,3 @@
+chatbot:
+  path: /chatbot
+  controller: JapanDoudou\ChatGptBundle\Controller\ChatbotController::getResponse
